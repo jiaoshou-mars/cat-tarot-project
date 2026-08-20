@@ -53,7 +53,7 @@ export async function requestDivination(
   input: DivinationRequest,
   signal?: AbortSignal,
 ): Promise<DivinationResponse> {
-  const response = await fetch('/api/divination', {
+  const response = await fetch('api/divination', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(input),
