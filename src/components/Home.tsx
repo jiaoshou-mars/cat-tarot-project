@@ -1,5 +1,7 @@
 import type { Page } from '../App';
 
+const cardBackImage = `${(import.meta as ImportMeta & { env?: { BASE_URL?: string } }).env?.BASE_URL ?? '/'}assets/cat-tarot/cover_optimized.png`;
+
 interface HomeProps {
   onNavigate: (page: Page) => void;
 }
@@ -24,7 +26,7 @@ export function Home({ onNavigate }: HomeProps) {
           </div>
         </div>
         <div className="hero-card-stack" aria-hidden="true">
-          <img src="/assets/cat-tarot/cover_optimized.png" alt="猫咪塔罗卡背" />
+          <img src={cardBackImage} alt="猫咪塔罗卡背" />
           <div className="glow-orb" />
         </div>
       </section>

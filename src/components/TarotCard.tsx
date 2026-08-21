@@ -1,4 +1,6 @@
 import { getOrientationLabel } from '../modules/promptBuilder';
+
+const cardBackImage = `${(import.meta as ImportMeta & { env?: { BASE_URL?: string } }).env?.BASE_URL ?? '/'}assets/cat-tarot/cover_optimized.png`;
 import type { Orientation, TarotCard as TarotCardType } from '../modules/deck';
 
 interface TarotCardProps {
@@ -31,7 +33,7 @@ export function TarotCard({
     <div className={`tarot-card-shell ${flipped ? 'is-flipped' : ''} ${compact ? 'compact' : ''}`}>
       <div className="tarot-card-inner">
         <div className="tarot-card-face tarot-card-back">
-          <img src="/assets/cat-tarot/cover_optimized.png" alt="猫咪塔罗卡背" />
+          <img src={cardBackImage} alt="猫咪塔罗卡背" />
         </div>
         <div className={frontClassName}>
           {card ? (
@@ -40,7 +42,7 @@ export function TarotCard({
               {concealed ? (
                 <img
                   className="tarot-card-concealment"
-                  src="/assets/cat-tarot/cover_optimized.png"
+                  src={cardBackImage}
                   alt=""
                   aria-hidden="true"
                 />

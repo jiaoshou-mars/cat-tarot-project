@@ -2,6 +2,8 @@ import { useMemo, useState } from 'react';
 import { getCardsBySuit, majorCards, suitLabels, tarotCards, type Suit, type TarotCard } from '../modules/deck';
 import { CardDetailModal } from './CardDetailModal';
 
+const galleryAssetBase = `${(import.meta as ImportMeta & { env?: { BASE_URL?: string } }).env?.BASE_URL ?? '/'}assets/cat-tarot/`;
+
 type GalleryFilter = 'all' | 'major' | Suit | 'extra';
 
 const filters: Array<{ id: GalleryFilter; label: string }> = [
@@ -23,7 +25,7 @@ interface ExtraCard {
 const extraCards: ExtraCard[] = Array.from({ length: 5 }, (_, index) => ({
   id: `extra-${index}`,
   title: `猫咪灵感卡 ${index + 1}`,
-  image: `/assets/cat-tarot/gallery-extra/Extra_${String(index).padStart(2, '0')}_optimized.jpg`,
+  image: `${galleryAssetBase}gallery-extra/Extra_${String(index).padStart(2, '0')}_optimized.jpg`,
 }));
 
 function ExtraCardModal({ card, onClose }: { card: ExtraCard; onClose: () => void }) {

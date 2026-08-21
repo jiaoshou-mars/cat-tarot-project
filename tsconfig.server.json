@@ -12,5 +12,5 @@
     "noEmit": true,
     "types": ["node"]
   },
-  "include": ["server/**/*.ts", "src/modules/**/*.ts", "src/data/**/*.json"]
+  "include": ["server/**/*.ts", "src/modules/**/*.ts", "src/data/**/*.json", "src/vite-env.d.ts"]
 }

@@ -46,7 +46,8 @@ function getSuit(index: number): Suit | undefined {
 }
 
 function toImagePath(imagePath: string): string {
-  return `/assets/cat-tarot/${imagePath.replace('cards/', 'cards_optimized/')}`;
+  const assetBase = (import.meta as ImportMeta & { env?: { BASE_URL?: string } }).env?.BASE_URL ?? '/';
+  return `${assetBase}assets/cat-tarot/${imagePath.replace('cards/', 'cards_optimized/')}`;
 }
 
 export const tarotCards: TarotCard[] = cardEntries.map(([id, card]) => {
