@@ -1,0 +1,10 @@
+.git
+node_modules
+dist
+.env
+.env.*
+API key.txt
+verification-*.json
+verification-*.png
+verify-*.mjs
+*.log

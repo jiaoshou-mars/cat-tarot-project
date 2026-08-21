@@ -1,0 +1,21 @@
+services:
+  cat-tarot-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: cat-tarot-api
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      CAT_TAROT_CONFIG_PATH: /run/secrets/cat_tarot_api_key
+      CAT_TAROT_API_PORT: 8787
+    volumes:
+      - /opt/cat-tarot-api/API key.txt:/run/secrets/cat_tarot_api_key:ro
+    expose:
+      - "8787"
+    networks:
+      - vibe-stack_default
+
+networks:
+  vibe-stack_default:
+    external: true

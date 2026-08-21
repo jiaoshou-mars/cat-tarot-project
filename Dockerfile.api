@@ -1,0 +1,14 @@
+FROM node:24-alpine
+
+WORKDIR /app
+ENV NODE_ENV=production
+
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
+
+COPY server ./server
+COPY src ./src
+COPY tsconfig.server.json ./
+
+EXPOSE 8787
+CMD ["./node_modules/.bin/tsx", "server/index.ts"]
