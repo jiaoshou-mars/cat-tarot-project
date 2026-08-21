@@ -7,6 +7,7 @@ import { divinationRequestSchema } from './schemas/divination';
 import { createDivination } from './services/divination';
 
 const app = express();
+const host = process.env.CAT_TAROT_API_HOST || '127.0.0.1';
 const port = Number(process.env.CAT_TAROT_API_PORT || 8787);
 const maxConcurrent = Number(process.env.CAT_TAROT_MAX_CONCURRENT || 3);
 const rateWindowMs = 60_000;
@@ -100,6 +101,6 @@ app.use((error: unknown, _request: express.Request, response: express.Response, 
   response.status(500).json({ status: 'error', code: 'internal_error', message: '服务暂时不可用。' });
 });
 
-app.listen(port, '127.0.0.1', () => {
+app.listen(port, host, () => {
   console.info(`[api] cat tarot server listening on http://127.0.0.1:${port}`);
 });

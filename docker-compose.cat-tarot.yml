@@ -8,6 +8,7 @@ services:
     environment:
       NODE_ENV: production
       CAT_TAROT_CONFIG_PATH: /run/secrets/cat_tarot_api_key
+      CAT_TAROT_API_HOST: 0.0.0.0
       CAT_TAROT_API_PORT: 8787
     volumes:
       - /opt/cat-tarot-api/API key.txt:/run/secrets/cat_tarot_api_key:ro
